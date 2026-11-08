@@ -1,0 +1,84 @@
+/* Дизайн Dove: полупрозрачный белый, голубой, синий */
+.widget-root {
+    -fx-background-color: rgba(255, 255, 255, 0.88); /* Белый, 88% плотности */
+    -fx-background-radius: 25;
+    -fx-border-color: rgba(135, 206, 250, 0.6); /* Голубая рамка */
+    -fx-border-radius: 25;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);
+}
+
+.sudoku-grid {
+    -fx-background-color: transparent;
+    -fx-hgap: 2;
+    -fx-vgap: 2;
+}
+
+.sudoku-cell {
+    -fx-background-color: rgba(240, 248, 255, 0.8);
+    -fx-text-fill: #4682B4;
+    /* -fx-font-size: 16px;  <--- УДАЛИ ЭТУ СТРОКУ */
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-radius: 3;
+    -fx-border-color: rgba(135, 206, 250, 0.3);
+    -fx-border-width: 0.5;
+    -fx-border-radius: 3;
+}
+
+
+.sudoku-cell:focused {
+    -fx-background-color: rgba(255, 255, 255, 1.0);
+    -fx-border-color: #87CEEB; /* Небесно-голубой при фокусе */
+    -fx-border-radius: 5;
+}
+
+.fixed-cell {
+    -fx-text-fill: #1E3A8A; /* Темно-синий для изначальных цифр */
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(220, 235, 250, 0.9); /* Чуть темнее фон */
+}
+
+.error-cell {
+    -fx-background-color: rgba(255, 200, 200, 0.9); /* Красный при ошибке */
+    -fx-text-fill: #B22222;
+}
+
+.border-right {
+    -fx-border-color: transparent rgba(135, 206, 250, 0.8) transparent transparent;
+    -fx-border-width: 0 2 0 0;
+}
+
+.border-bottom {
+    -fx-border-color: transparent transparent rgba(135, 206, 250, 0.8) transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.timer-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4682B4;
+}
+
+.status-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #7CA6C6;
+}
+
+.combo-box {
+    -fx-background-color: rgba(135, 206, 250, 0.3);
+    -fx-background-radius: 8;
+}
+
+.button {
+    -fx-background-color: #87CEEB;
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #4682B4;
+}
