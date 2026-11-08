@@ -24,6 +24,50 @@ public class SudokuSolver {
         return 1;
     }
 
+    public static boolean solveOne(int[][] board) {
+        if (!isConsistent(board)) {
+            return false;
+        }
+        return solveOneRecursive(board);
+    }
+
+    private static boolean solveOneRecursive(int[][] board) {
+        for (int row = 0; row < GRID_SIZE; row++) {
+            for (int col = 0; col < GRID_SIZE; col++) {
+                if (board[row][col] == 0) {
+                    for (int value = 1; value <= GRID_SIZE; value++) {
+                        if (isValid(board, row, col, value)) {
+                            board[row][col] = value;
+                            if (solveOneRecursive(board)) {
+                                return true;
+                            }
+                            board[row][col] = 0;
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private static boolean isConsistent(int[][] board) {
+        for (int row = 0; row < GRID_SIZE; row++) {
+            for (int col = 0; col < GRID_SIZE; col++) {
+                int value = board[row][col];
+                if (value != 0) {
+                    board[row][col] = 0;
+                    boolean valid = isValid(board, row, col, value);
+                    board[row][col] = value;
+                    if (!valid) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
     public static boolean isValid(int[][] board, int row, int col, int value) {
         return !isNumberInBox(board, value, row, col)&&!isNumberInColumn(board,value,col)&&!isNumberInRow(board,value,row);
     }
